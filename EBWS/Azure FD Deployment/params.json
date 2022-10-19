@@ -1,0 +1,76 @@
+
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "locationList": {
+            "value": {
+                "uksouth": "uks",
+                "ukwest": "ukw"
+            }
+        },
+        "frontDoors":{
+            "value": [
+                {   
+                "name": "primary",
+                "sku": "Premium_AzureFrontDoor"
+                }
+            ]
+        },
+        "originconfigSettings": {
+            "value": [
+                {
+                    "Name": "mainOriginSettings",
+                    "properties": {
+                        "httpPort": "80",
+                        "httpsPort": "443",
+                        "priority": "1",
+                        "weight": "1000",
+                        "enabledState": "Enabled",
+                        "enforceCertificateNameCheck": "False"
+                    }
+                }
+            ]
+        },
+        "originGroupSettings": {
+            "value":
+            [
+                {
+                    "name": "mainOriginGroupSettings",
+                    "properties": {
+                        "enabledState": "Enabled",
+                        "healthProbeSettings": {
+                                "probeIntervalInSeconds": 100,
+                                "probePath": "/",
+                                "probeProtocol": "Http",
+                                "probeRequestType": "HEAD"
+                            },
+                        "loadBalancingSettings":{
+                                "sampleSize": 4,
+                                "sucessfulSamplesRequired": 3
+                            }
+                    }
+                }
+            ]
+        },
+        "routeSettings": {
+            "value": [
+                {
+                    "name": "mainSettings",
+                    "properties": {
+                        "supportedProtocols": [
+                            "Http",
+                            "Https"
+                        ],
+                        "patternsToMatch": [
+                            "/*"
+                        ],
+                        "forwardingProtocol": "HttpsOnly",
+                        "linkToDefaultDomain": "Enabled",
+                        "httpsRedirect": "Enabled"
+                    }
+                }
+            ]
+        }
+    }
+}
