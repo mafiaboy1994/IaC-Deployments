@@ -25,11 +25,6 @@ param projectName string
 @description('creates front door endpoint based off array of fd params in params.json file')
 param frontDoors array
 
-@description('creates origin groups based off list of IPs passed from PS Script')
-param backendPools array
-
-@description('creates origins based off list of domains from PS Script ')
-param origins array
 
 @description('route settings from params')
 param routeSettings array
@@ -68,10 +63,8 @@ module frontdoorModule 'modules/fd.bicep' = [for profiles in frontDoors:{
     locationList: locationList
     product: product
     projectName: projectName
-    tags: tagValues
-    frontDoors:profiles
-    backendPools:backendPools
-    origins:origins
+    tags: tagValues 
+    originGroups: profiles.originGroups
     originConfigSettings: originConfigSettings
     originGroupSettings: originGroupSettings
     routeSettings: routeSettings

@@ -2,7 +2,7 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
+    "parameters": { 
         "locationList": {
             "value": {
                 "uksouth": "uks",
@@ -13,7 +13,228 @@
             "value": [
                 {   
                 "name": "primary",
-                "sku": "Premium_AzureFrontDoor"
+                "sku": "Premium_AzureFrontDoor",
+                "originGroups": [
+                    {
+                        "name": "FSLRDWEBLogin1",
+                        "origins": [
+                            {   
+                                "name": "FSLCldIntVMFM01",
+                                "ip": "40.85.140.40"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "secure.containercentralexample.com"
+                            },
+                            {
+                                "domainName": "otgdevices.containercentralexample.com"
+                            },
+                            {
+                                "domainName": "epod.containercentralexample.com"
+                            },
+                            {
+                                "domainName": "pcmiles.containercentralexample.com"
+                            },
+                            {
+                                "domainName": "pcmiles.examplesystems.com"
+                            },
+                            {
+                                "domainName": "ewseuropemiles.examplesystems.com"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "FSLRDWEBLogin",
+                        "origins": [
+                            {
+                                "name": "FSLRDWEBLogin",
+                                "ip": "13.79.241.71"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "examplecloud.com"
+                            },
+                            {
+                                "domainName": "apps.examplecloud.com"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Supportportal",
+                        "origins": [
+                            {
+                                "name": "Supportportal",
+                                "ip": "52.169.113.8"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName":"wt.examplecloud.com"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "exampleCLOUDAwinguLogin",
+                        "origins": [
+                            {
+                                "name": "exampleCLOUDAwinguLogin",
+                                "ip": "52.164.251.2"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "tops.examplesystems.cloud"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "EclipseTOPSePOD",
+                        "origins": [
+                            {
+                                "name":"EclipseTOPSePOD",
+                                "ip": "13.79.161.48"
+                            }
+                        ],
+                        "domains":[
+                            {
+                                "domainName": "eclipse.exampletopsepod.com"
+                            },
+                            {
+                                "domainName": "fargosystems.exampletopsepod.com"
+                            },
+                            {
+                                "domainName": "examplesystems.exampletopsweb.cloud"
+                            },
+                            {
+                                "domainName": "3pl.exampletopsweb.cloud"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "GWAwinguLogin",
+                        "origins": [
+                            {
+                                "name": "FSLCLOUDAwinguLogin",
+                                "ip": "51.104.224.123"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "awingu.examplegandwuk.cloud"
+                            },
+                            {
+                                "domainName": "portal.gandwuk.cloud"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "GWRDWEBLogin",
+                        "origins": [
+                            {
+                                "name": "GWRDWEBLogin",
+                                "ip": "51.105.55.43"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "remote.examplegandwuk.cloud"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "GWTOPSWEB",
+                        "origins": [
+                            {
+                                "name": "GWTOPSWEB",
+                                "ip": "51.145.97.207"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "topsweb.examplegandwuk.cloud"
+                            },
+                            {
+                                "domainName": "topsepod.examplegandwuk.cloud"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ContainershipsRDWEBLogin",
+                        "origins": [
+                            {
+                                "name": "ContainershipsRDWEBLogin",
+                                "ip": "20.77.32.241"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "remote.examplecontainershipstops.com"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ContainershipsAwinguLogin",
+                        "origins": [
+                            {
+                                "name": "ContainershipsAwinguLogin",
+                                "ip": "20.68.249.179"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "portal.examplecontainershipstops.com"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ContainershipsTOPS",
+                        "origins": [
+                            {
+                                "name": "ContainershipsTOPSWEB",
+                                "ip": "51.132.174.122"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "topsweb.examplecontainershipstops.com"
+                            },
+                            {
+                                "domainName": "topsepod.examplecontainershipstops.com"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "RoadwingHostedAwingu",
+                        "origins": [
+                            {
+                                "name": "RoadwingHostedAwingu",
+                                "ip": "52.233.177.155"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "awingurw.examplesystems.cloud"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "RoadwingHostedAwinguApp0",
+                        "origins": [
+                            {
+                                "name": "RoadwingHostedAwinguApp0",
+                                "ip": "13.95.28.33"
+                            }
+                        ],
+                        "domains": [
+                            {
+                                "domainName": "apm.exampletopsepod.com"
+                            }
+                        ]
+                    }
+
+                ]
                 }
             ]
         },
